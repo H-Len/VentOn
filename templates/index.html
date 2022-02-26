@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<container>
+
+<div class = "scene">
+<div class="cube">
+    <div class="cube__face cube__face--1">inhale</div>
+    <div class="cube__face cube__face--2">hold</div>
+    <div class="cube__face cube__face--3">exhale</div>
+    <div class="cube__face cube__face--4">smile</div>
+    <div class="cube__face cube__face--5">pause</div>
+    <div class="cube__face cube__face--6">reflect</div>
+</div>
+
+<button class = "rollBtn">Roll the Dice</button>
+</div>
+    
+<div class="dropdown">
+    <span>Mouse over me</span>
+    <div class="dropdown-content">
+    <h1>Table of contents</h1>
+    <h3>{interactive}</h3>
+    <p>{% for post in posts %}
+        <p class="{{ post['title']}} vent" onclick="{{'toggle_display(\'#postnum' + post['id']|string + '\')' }}" >{{ post['title'] }}
+            <!-- <button class="{{ post['title']}}" onclick="{{'toggle_display(\'#postno' + post['id']|string + '\')' }}" >{{ post['title'] }}</button> -->
+            <div class='entry' id="{{ 'postnum' + post['id']|string }}" display="none">
+                <p class="created">{{ post['created'] }}</p>
+                <h2>{{ post['title'] }}</h2>
+                <p><span class="formatted_post">{{ post['content'] }}</span></p>
+                <a href="{{ url_for('edit', id=post['id']) }}">Edit</a>
+            </div>
+        </p> 
+    {% endfor %}</p>
+</div>
+</div>
+    <button onclick="toggle_display('#content_section')">Toggle display</button>
+    <div id="content_section">
+    <!-- <button type="button" onclick="show">hide this</button> -->
+    {% for post in posts %}
+        <p class="{{ post['title']}} vent" onclick="{{'toggle_display(\'#postno' + post['id']|string + '\')' }}" >{{ post['title'] }}
+            <!-- <button class="{{ post['title']}}" onclick="{{'toggle_display(\'#postno' + post['id']|string + '\')' }}" >{{ post['title'] }}</button> -->
+            <div class='entry' id="{{ 'postno' + post['id']|string }}" display="none">
+                <p class="created">{{ post['created'] }}</p>
+                <h2>{{ post['title'] }}</h2>
+                <p><span class="formatted_post">{{ post['content'] }}</span></p>
+                <a href="{{ url_for('edit', id=post['id']) }}">Edit</a>
+            </div>
+        </p> 
+    {% endfor %}
+    </div>
+</container>
+{% endblock %}
+
