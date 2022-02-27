@@ -43,9 +43,7 @@ body {
     color: lightslategrey;
     width: 90%;
     background-color: bisque;
-    background-image: url("img/college_rule.jpg");
     width: fit-content;
-    background-repeat: no-repeat;
     background-size: cover;
 
 
@@ -94,7 +92,7 @@ button {
 }
 
 #content_section {
-    background-image: url("img/dandelion.jpg");
+    background-image: inherit;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10%;
