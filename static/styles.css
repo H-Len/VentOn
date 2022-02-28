@@ -1,6 +1,8 @@
 body {
-    background-color: #128512;
-    font-family: sans-serif;
+    background-image: url("img/stormynight.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: darkslategrey;
 }
 
 nav {
@@ -15,13 +17,6 @@ h1 {
     padding: 1em;
     text-align: left;
     width: 10%;
-}
-
-body {
-    background-image: url("img/stormynight.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: darkslategrey;
 }
 
 #content_section {
@@ -181,3 +176,21 @@ body {
 .cube__face--6 { transform: rotateX(-90deg) translateZ(100px); }
 
 label { margin-right: 10px; }
+
+input {
+    background-color: rgb(144, 127, 244);
+    border:rgb(23, 24, 24) solid .15em;
+    margin: 1em;
+
+}
+
+textarea {
+    background-color: rgb(144, 127, 244);
+    border:rgb(23, 24, 24) solid .15em;
+    margin: 1em;
+}
+
+/* .dropdown-content {
+    background-color: rgb(144, 127, 243);
+    background-image: inherit;
+} */
