@@ -137,6 +137,7 @@ body {
   transform-style: preserve-3d;
   transform: translateZ(-100px);
   transition: transform 1s;
+  
 }
 
 /*styling for 3D Cube transforms / animations on face select (on roll)*/
@@ -158,6 +159,8 @@ body {
   font-weight: bold;
   color: white;
   text-align: center;
+  border-radius: 50%;
+
 }
 
 /* individual styling for each numbers face  */

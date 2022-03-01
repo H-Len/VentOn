@@ -82,5 +82,12 @@ def delete(id):
     return redirect(url_for('index'))
 
 
+@app.route('/poetry', methods=('GET', 'POST'))
+def poetry():
+    conn = get_db_connection()
+    posts = conn.execute('SELECT * FROM posts WHERE title like "poetry"').fetchall()
+    conn.close()
+    return render_template('poetry.html', posts = posts)
+
 if __name__ == '__main__':
     app.run(debug= True, port = 5000)
