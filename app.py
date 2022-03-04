@@ -82,10 +82,10 @@ def delete(id):
     return redirect(url_for('index'))
 
 
-@app.route('/poetry', methods=('GET', 'POST'))
-def poetry():
+@app.route('/grateful', methods=('GET', 'POST'))
+def grateful():
     conn = get_db_connection()
-    posts = conn.execute('SELECT * FROM posts WHERE title like "poetry"').fetchall()
+    posts = conn.execute('SELECT * FROM posts WHERE title like "grateful"').fetchall()
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
@@ -101,7 +101,7 @@ def poetry():
             conn.commit()
             conn.close()
     
-    return render_template('/poetry.html', posts = posts)
+    return render_template('/grateful.html', posts = posts)
 
 
 

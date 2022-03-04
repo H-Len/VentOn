@@ -1,12 +1,12 @@
 body {
-    background-image: url("img/stormynight.jpg");
+    background-image: url("img/spyglass.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: darkslategrey;
 }
 
 nav {
-    text-shadow: 2px 2px 5px blueviolet;
+    text-shadow: 2px 2px 5px rgb(43, 189, 226);
 }
 
 h1 {
@@ -103,7 +103,7 @@ button {
 
 body { 
   font-family: sans-serif;
-  background:url("img/stormynight.jpg");
+  /* background:url("img/stormynight.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   color:white;
@@ -122,10 +122,10 @@ body {
   background:black;
   color:white;
   border:none;
-  margin:auto 0;
-  font-size:1.5em;
+  margin: 2em;
+  font-size:0.9em;
   margin-top:1em;
-  width:200px;
+  width:100px;
 
 }
 
@@ -181,14 +181,15 @@ body {
 label { margin-right: 10px; }
 
 input {
-    background-color: rgb(144, 127, 244);
+    background-color: rgb(212, 240, 240);
     border:rgb(23, 24, 24) solid .15em;
     margin: 1em;
 
 }
 
 textarea {
-    background-color: rgb(144, 127, 244);
+    /* background-color: rgb(144, 127, 244); */
+    background-color: rgb(212, 240, 240);
     border:rgb(23, 24, 24) solid .15em;
     margin: 1em;
 }
@@ -196,4 +197,10 @@ textarea {
 /* .dropdown-content {
     background-color: rgb(144, 127, 243);
     background-image: inherit;
+} */
+
+/* #positive {
+    background: url("img/spyglass.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
 } */
