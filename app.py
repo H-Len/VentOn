@@ -82,12 +82,31 @@ def delete(id):
     return redirect(url_for('index'))
 
 
-@app.route('/poetry', methods=('GET', 'POST'))
-def poetry():
+@app.route('/grateful', methods=('GET', 'POST'))
+def grateful():
     conn = get_db_connection()
-    posts = conn.execute('SELECT * FROM posts WHERE title like "poetry"').fetchall()
-    conn.close()
-    return render_template('poetry.html', posts = posts)
+    posts = conn.execute('SELECT * FROM posts WHERE title like "grateful"').fetchall()
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+
+        if not title:
+            flash('Title is required!')
+        elif not content:
+            flash('Content is required!')
+        else:
+            conn = get_db_connection()
+            conn.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
+                         (title, content))
+            conn.commit()
+            conn.close()
+    
+    return render_template('/grateful.html', posts = posts)
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug= True, port = 5000)

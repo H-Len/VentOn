@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <div id="positive"> -->
+<container>
+    <div class = "scene">
+    <div class="cube">
+        <div class="cube__face cube__face--1">work</div>
+        <div class="cube__face cube__face--2">school</div>
+        <div class="cube__face cube__face--3">breathe</div>
+        <div class="cube__face cube__face--4">write</div>
+        <div class="cube__face cube__face--5">café</div>
+        <div class="cube__face cube__face--6">meetup</div>
+    </div>
+    
+    <button class = "rollBtn">What to Do</button>
+    </div>
+
+    <h1>{% block title %} What are you grateful for today? {% endblock %}</h1>
+    <ol>
+        <li>Describe your favorite moment of the day. </li> <!-- What was it and why is it your favorite moment? When we focus on small moments, we recognize the importance of each day.  Think about the day you are having now.  What was special to you?</li> -->
+        <br>
+        <li>Describe your favorite person and list all of that person’s good qualities. </li> <!--
+        Write about one or more of those qualities.  You can write one journal entry for each quality you like about that person.  This writing prompt pushes you to not take people for granted.  It helps you appreciate those around you even more.</li> -->
+        <br>
+        <li>Write about a random act of kindness from another person. </li> <!--
+        These could be acts of kindness from a friend, family member, or even a stranger. Don’t just consider grand actions, but these might be small things too, such as a person letting you go ahead of them in a waiting line.  Bonus points:  Don’t just write about it, but do an act of kindness.</li> -->
+        <br>
+        <li>Write about something that cheers you up when you feel down.</li>
+        <!--Is there a person, animal, thing or something you do that cheers you up on a bad day?  Describe it in your journal, and write about why or how it makes you feel better.</li> -->
+        <br>
+        <li>List 5 things you are grateful for today.</li> <!--
+        It doesn’t matter if these are small things. List them.  I learned about this idea from an old episode of Oprah and used it to help me at the lowest part of my life.  This prompt made me recognize all that is positive. Of course, my pets Cuddles and Dylan were always on that list, but I found a lot of other things to add too.  Bonus points:   Write 6 or more things you are grateful for today.</li> -->
+        <br>
+        <li>Remember a success you had and write a thank-you speech describing who helped you reach it. </li> <!--
+        Imagine you received an award, who would you say helped you reach that goal?  How did it come about, and what contributed to your success?  Bonus points:  After writing your speech, share it with the people who helped you succeed.</li> -->
+        <br>
+        <li>Write about a favorite hobby.</li> <!--
+        Why do you love it?  How does it make you feel?  Describe your hobby and what makes it wonderful and how it is possible that you can do it.  Bonus points:  Go and enjoy your hobby.</li> -->
+        <br>
+        <li>Write about something you are grateful for with your work or personal life.</li> <!--
+        I like this prompt because it helps you realize something that is good about work even if you don’t like your job. Or, it helps you see something you can be thankful for in your personal life even if you feel like you are struggling.</li> -->
+        <br>
+        <li>Write about something you accomplished today, and how you feel now.</li> <!--
+        Do you have a lot of things on your to-do list? Well, how do feel when you cross those items off?  Write about that and be thankful for anyone or anything that helped you finish what you wanted to do.</li> -->
+        <br>
+        <li>Write about something someone else did to make you happy.</li> <!--
+        It doesn’t have to be a huge thing someone else did.  It can be something small.  You begin to see the impact of little things.  For example, it might be that someone else lent you a pencil for class.  It seems a tiny favor, but think of its effect.  What if you didn’t have anything to write with it?  How would you take notes in class?</li> -->
+        <br>
+        <li>Write about something you did to make someone happy today.</li> <!--
+        This prompt asks you to see what good you do (and if you can’t come up with something you need to work on caring for others).  Describe how what you did made another person feel, laugh or smile.  Be thankful that you could reach out and make someone else feel joy for a moment, a day, a week, or longer.</li> -->
+        <br>
+        <li>Write about a pet and what makes him/her special.</li> <!--
+        This may seem strange, and if you don’t have a pet forget this prompt.  However, animals keep us company, comfort us, and adore us no matter what.  They don’t judge you by grades, work, income, style, or appearance.  Pets love us unconditionally.  They also have distinct personalities and traits. What makes your pet special? How does your pet make you feel?</li> -->
+        <br>
+        <li>One of the best experiences of my life was… I am grateful for that experience because…
+        What is something wonderful that happened to you and why do you feel that way about it?</li> <!-- I discovered this writing prompt in a blog post called, “Writing Prompts for Giving Thanks” on the website Writing Forward https://www.writingforward.com/writing-prompts/journal-prompts/gratitude-journal-prompts.</li> -->
+        <br>
+        <li>List at least 10 things you like about yourself.</li> <!--  Write a journal entry for each of those things.
+        Describe 10 things you love about you, and how you are grateful for each of those things.  For instance,  if you like that you’re confident, be thankful that you have that gift.  Also, who or what helped you become confident?  Another great aspect of this prompt is that you have ten days of ideas for your journal.</li> -->
+        <br>
+        <li>Write about something good you saw in your community.</li> <!--
+        Look at what is happening in your local area.  Are there volunteers who help out in a city, town, school, or college?  Is there a new program that helps people?  Are people doing something that makes a difference?  Write about it and the impact it has on you.  Does it make you feel grateful or inspire you?  Bonus points:  Volunteer."</li> -->
+    </ol>
+    <form method="post">
+        <label for="title">Title</label>
+        <br>
+        <input type="text" name="title"
+            placeholder="Post title"
+            value="{{ request.form['title'] }}"></input>
+        <br>
+
+        <label for="content">What are you grateful for today?</label>
+        <br>
+        <textarea name="content"
+                placeholder="15 Fabulous Gratitude Writing Prompts Above"
+                rows="15"
+                cols="60"
+                >{{ request.form['content'] }}</textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+<!-- </div> -->
+</container>
+{% endblock %}
