@@ -1,9 +1,26 @@
+from datetime import datetime
+from email.policy import default
 from multiprocessing import connection
 import sqlite3
+from turtle import title
 from flask import Flask, render_template, request, url_for, flash, redirect, abort
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'k3n%L$knn(9()wl_-o'
+
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.DateTime, nullable=False)
+    title = db.Column(db.Text, nullable=False) 
+    content = db.Column(db.Text, nullable=False)
+
+    def __repr__(self):
+        return '<Post %r>' % self.content
 
 
 def get_db_connection():
@@ -13,7 +30,7 @@ def get_db_connection():
 
 def get_post(post_id):
     conn = get_db_connection()
-    post = conn.execute('SELECT * FROM posts WHERE id = ?',
+    post = conn.execute('SELECT * FROM post WHERE id = ?',
                          (post_id,)).fetchone()
     conn.close()
     if post is None:
@@ -22,9 +39,15 @@ def get_post(post_id):
 
 @app.route('/')
 def index():
-    conn = get_db_connection()
-    posts = conn.execute('SELECT * FROM posts').fetchall()
-    conn.close()
+    # conn = get_db_connection()
+    # posts = conn.execute('SELECT * FROM posts').fetchall()
+    # conn.close()
+
+
+    ROWS_PER_PAGE = 5
+    page = request.args.get('page', 1, type=int)
+
+    posts = Post.query.paginate(page=page, per_page=ROWS_PER_PAGE)
     return render_template('index.html', posts = posts)
 
 @app.route('/create', methods=('GET', 'POST'))
@@ -39,7 +62,7 @@ def create():
             flash('Content is required!')
         else:
             conn = get_db_connection()
-            conn.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
+            conn.execute('INSERT INTO post (title, content) VALUES (?, ?)',
                          (title, content))
             conn.commit()
             conn.close()
@@ -62,7 +85,7 @@ def edit(id):
 
         else:
             conn = get_db_connection()
-            conn.execute('UPDATE posts SET title = ?, content = ?'
+            conn.execute('UPDATE post SET title = ?, content = ?'
                          ' WHERE id = ?',
                          (title, content, id))
             conn.commit()
@@ -75,19 +98,34 @@ def edit(id):
 def delete(id):
     post = get_post(id)
     conn = get_db_connection()
-    conn.execute('DELETE FROM posts WHERE id = ?', (id,))
+    conn.execute('DELETE FROM post WHERE id = ?', (id,))
     conn.commit()
     conn.close()
     flash('"{}" was successfully deleted!'.format(post['title']))
     return redirect(url_for('index'))
 
 
-@app.route('/poetry', methods=('GET', 'POST'))
-def poetry():
+@app.route('/grateful', methods=('GET', 'POST'))
+def grateful():
     conn = get_db_connection()
-    posts = conn.execute('SELECT * FROM posts WHERE title like "poetry"').fetchall()
-    conn.close()
-    return render_template('poetry.html', posts = posts)
+
+    posts = conn.execute('SELECT * FROM post').fetchall()
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+
+        if not title:
+            flash('Title is required!')
+        elif not content:
+            flash('Content is required!')
+        else:
+            conn = get_db_connection()
+            conn.execute('INSERT INTO post (title, content) VALUES (?, ?)',
+                         (title, content))
+            conn.commit()
+            conn.close()
+    
+    return render_template('grateful.html', posts = posts)
 
 if __name__ == '__main__':
     app.run(debug= True, port = 5000)

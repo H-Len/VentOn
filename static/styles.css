@@ -94,9 +94,10 @@ button {
     padding: 3em;
 }
 
+/* 
 .dropdown {
     color: silver;
-}
+} */
 
 /*general stying for page*/ 
 * { box-sizing: border-box; }
@@ -196,4 +197,40 @@ textarea {
 /* .dropdown-content {
     background-color: rgb(144, 127, 243);
     background-image: inherit;
+<<<<<<< Updated upstream
 } */
+/* ======= */
+/* } */
+
+/* #positive {
+    background: url("img/spyglass.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+
+th {
+    font-style: italic;
+    text-decoration: underline;
+}
+.table-responsive {
+    font: bold;
+    /* color:aqua;x */
+}
+/* >>>>>>> Stashed changes */
+
+.pagination-page-info {
+    padding: .6em;
+    padding-left: 0;
+    width: 40em;
+    margin: .5em;
+    margin-left: 0;
+    font-size: 12px;
+    height: 5em;
+}
+.pagination-page-info b {
+    color: black;
+    background: #6aa6ed;
+    padding-left: 2px;
+    padding: .1em .25em;
+    font-size: 150%;
+}
