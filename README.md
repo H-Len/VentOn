@@ -20,6 +20,6 @@ Specs:
 Technologies Used
 (Projected) 
  - FRONTEND: html, css, javascript, maybe eventually Elm
- - BACKEND: Python
+ - BACKEND: Python, Flask, SQLAlchemy
  - DB: MySQL or SQLite, maybe SQL Server
 
