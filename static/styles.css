@@ -214,7 +214,13 @@ th {
 }
 .table-responsive {
     font: bold;
-    /* color:aqua;x */
+    background-color: violet;
+    color: black;
+}
+
+.text-right {
+    background-color: violet;
+    fit
 }
 /* >>>>>>> Stashed changes */
 
@@ -233,4 +239,12 @@ th {
     padding-left: 2px;
     padding: .1em .25em;
     font-size: 150%;
+}
+
+.text-right {
+    color: black;
+}
+
+btn {
+    color: darkgreen;
 }

@@ -5,6 +5,8 @@ import sqlite3
 from turtle import title
 from flask import Flask, render_template, request, url_for, flash, redirect, abort
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import TIMESTAMP, insert
+from sqlalchemy import Column, Integer, DateTime
 
 
 app = Flask(__name__)
@@ -15,7 +17,7 @@ app.config['SECRET_KEY'] = 'k3n%L$knn(9()wl_-o'
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    created = db.Column(db.DateTime, nullable=False)
+    created = db.Column(db.DateTime, nullable=False, default=datetime.now)
     title = db.Column(db.Text, nullable=False) 
     content = db.Column(db.Text, nullable=False)
 
@@ -39,10 +41,6 @@ def get_post(post_id):
 
 @app.route('/')
 def index():
-    # conn = get_db_connection()
-    # posts = conn.execute('SELECT * FROM posts').fetchall()
-    # conn.close()
-
 
     ROWS_PER_PAGE = 5
     page = request.args.get('page', 1, type=int)
@@ -61,17 +59,17 @@ def create():
         elif not content:
             flash('Content is required!')
         else:
-            conn = get_db_connection()
-            conn.execute('INSERT INTO post (title, content) VALUES (?, ?)',
-                         (title, content))
-            conn.commit()
-            conn.close()
+
+            new_add = Post(title=title, content=content)
+            db.session.add(new_add)
+            db.session.commit()
+
             return redirect(url_for('index'))
     return render_template('create.html')
 
 @app.route('/<int:id>/edit/', methods=('GET', 'POST'))
 def edit(id):
-    post = get_post(id)
+    post = db.session.query(Post).get(id)
 
     if request.method == 'POST':
         title = request.form['title']
@@ -84,12 +82,10 @@ def edit(id):
             flash('Content is required!')
 
         else:
-            conn = get_db_connection()
-            conn.execute('UPDATE post SET title = ?, content = ?'
-                         ' WHERE id = ?',
-                         (title, content, id))
-            conn.commit()
-            conn.close()
+            post.title = title
+            post.content = content
+            db.session.commit()
+
             return redirect(url_for('index'))
 
     return render_template('edit.html', post=post)
@@ -107,9 +103,6 @@ def delete(id):
 
 @app.route('/grateful', methods=('GET', 'POST'))
 def grateful():
-    conn = get_db_connection()
-
-    posts = conn.execute('SELECT * FROM post').fetchall()
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
@@ -119,13 +112,20 @@ def grateful():
         elif not content:
             flash('Content is required!')
         else:
-            conn = get_db_connection()
-            conn.execute('INSERT INTO post (title, content) VALUES (?, ?)',
-                         (title, content))
-            conn.commit()
-            conn.close()
-    
-    return render_template('grateful.html', posts = posts)
+
+
+            new_add = Post(title=title, content=content)
+            db.session.add(new_add)
+            db.session.commit()
+
+            # conn = get_db_connection()
+            # conn.execute('INSERT INTO post (title, content) VALUES (?, ?)',
+            #              (title, content))
+            # conn.commit()
+            # conn.close()
+            return redirect(url_for('index'))
+    return render_template('grateful.html')
+
 
 if __name__ == '__main__':
     app.run(debug= True, port = 5000)
