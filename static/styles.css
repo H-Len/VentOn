@@ -242,8 +242,15 @@ th {
 
 .text-right {
     color: black;
+    width: 25%;
+    border-radius: 0%;
 }
 
 btn {
     color: darkgreen;
 }
+
+.table-responsive {
+    width: 70%;
+}
+
