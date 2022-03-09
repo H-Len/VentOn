@@ -115,3 +115,5 @@ dmypy.json
 
 #folder info file from MacOS
 .DS_Store
+
+.db
