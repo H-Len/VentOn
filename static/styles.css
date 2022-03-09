@@ -220,9 +220,7 @@ th {
 
 .text-right {
     background-color: violet;
-    fit
 }
-/* >>>>>>> Stashed changes */
 
 .pagination-page-info {
     padding: .6em;
@@ -233,6 +231,7 @@ th {
     font-size: 12px;
     height: 5em;
 }
+
 .pagination-page-info b {
     color: black;
     background: #6aa6ed;
