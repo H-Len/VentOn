@@ -6,7 +6,7 @@ body {
 }
 
 nav {
-    text-shadow: 2px 2px 5px rgb(43, 189, 226);
+    text-shadow: 2px 2px 5px grey;
 }
 
 h1 {
@@ -212,13 +212,13 @@ th {
     text-decoration: underline;
 }
 .table-responsive {
-    font: bold;
-    background-color: violet;
+    /* font: bold; */
+    background-color: lightsteelblue;
     color: black;
 }
 
 .text-right {
-    background-color: violet;
+    background-color: lightsteelblue;
 }
 
 .pagination-page-info {
@@ -241,8 +241,11 @@ th {
 
 .text-right {
     color: black;
-    width: 25%;
+    width: 70%;
+    width: fit-content;
     border-radius: 0%;
+    border: .25em solid grey;
+    border-style: dotted;
 }
 
 btn {
@@ -251,6 +254,7 @@ btn {
 
 .table-responsive {
     width: 70%;
+    border: .25em solid grey;
 }
 
 
