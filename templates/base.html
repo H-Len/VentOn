@@ -100,7 +100,9 @@
         rollDice();
         // on click eventlistener for the button element
         rollBtn.addEventListener("click", rollDice);
-        }        
+        }   
+        
+
     
     </script>
     {% endblock %}
@@ -110,6 +112,7 @@
         <a href="{{ url_for('index') }}">VentOn!!!</a>
         <a href="{{ url_for('create') }}">Create</a>
         <a href="{{ url_for('grateful') }}">Gratitude</a>
+        <a href="{{ url_for('speak') }}">Speak it</a>
     </nav>
 
     <hr>

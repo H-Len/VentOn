@@ -1,3 +1,4 @@
+from crypt import methods
 from datetime import datetime
 from email.policy import default
 from multiprocessing import connection
@@ -47,6 +48,10 @@ def index():
 
     posts = Post.query.paginate(page=page, per_page=ROWS_PER_PAGE)
     return render_template('index.html', posts = posts)
+
+@app.route('/speak', methods=('GET', 'POST'))
+def speak():
+    return render_template('speak.html')
 
 @app.route('/create', methods=('GET', 'POST'))
 def create():

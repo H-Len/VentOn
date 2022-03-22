@@ -13,11 +13,12 @@
 
         <label for="content">Post Content</label>
         <br>
-        <textarea name="content"
-                  placeholder="Post content"
-                  rows="15"
-                  cols="60"
-                  >{{ request.form['content'] }}</textarea>
+        <textarea id="create"
+                name="content"
+                placeholder="Post content"
+                rows="15"
+                cols="60"
+                >{{ request.form['content'] }}</textarea>
         <br>
         <button type="submit">Submit</button>
     </form>

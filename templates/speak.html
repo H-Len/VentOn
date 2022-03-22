@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script src="audio_scripts.js"></script>
+<h1>Speed up the vent by speaking!</h1>
+<button type="button">&#xf130;</button>
+
+<p>Used on a button:</p>
+<button class="fa fa-microphone" id="mic_btn" style="font-size:30px" onclick="submit">&#xf130;</button>
+
+
+<!-- <button style="font-size:24px">Button <i class="fa fa-microphone"></i></button> -->
+<div class="microphone">Click and speak!</div>
+
+
+
+<container class="text-box">
+    <paragraph>
+        <p>
+            <i class="fa.fa-microphone">blah</i>
+        </p>
+    </paragraph>
+</container>
+{% endblock %}
+
+
+
+<!-- speechSynthesis.getVoices() -->
