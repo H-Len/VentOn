@@ -1,5 +1,5 @@
 // audio
-const icon = document.querySelector('i.fa.fa-microphone')
+const icon = document.querySelector('i.fa fa-microphone')
 let paragraph = document.createElement('p');
 let container = document.querySelector('.text-box');
 container.appendChild(paragraph);
