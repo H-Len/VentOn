@@ -108,6 +108,7 @@ def delete(id):
 
 @app.route('/grateful', methods=('GET', 'POST'))
 def grateful():
+
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
