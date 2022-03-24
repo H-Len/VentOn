@@ -5,6 +5,7 @@ let container = document.querySelector('.text-box');
 container.appendChild(paragraph);
 const sound = document.querySelector('.sound');
 
+
 window.SpeechRecognition = webkitSpeechRecognition || window.SpeechRecognition;
 const synth = window.speechSynthesis;
 recognition = new SpeechRecognition();
@@ -69,3 +70,6 @@ const getDate = () => {
 //     utterThis = new SpeechSynthesisUtterance('this weather condition in ${weather.name} is mostly full of ${weather.weather[0].condition} at a temperature of ${weather.main.temp} degrees Celcius');
 //     synth.speak(utterThis);
 // })
+
+
+
