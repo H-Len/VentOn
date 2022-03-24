@@ -1,22 +1,38 @@
-body {
+/* body {
     background-image: url("img/stormynight.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: darkslategrey;
-}
-
+} */
+body { 
+    font-family: sans-serif;
+    background:url("img/james_star.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:rgb(151, 151, 151);
+    
+  }
+  
 nav {
-    text-shadow: 2px 2px 5px grey;
+    padding: 1em;
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+    background-color: black;
+    text-shadow: 2px 2px 5px rgb(250, 163, 163);
+
 }
 
 h1 {
-    background-color: rgb(44, 129, 207);
+    /* background-color: rgb(44, 129, 207); */
     align-self: flex-start;
-    text-shadow: 2px 2px 5px yellowgreen;
-    border-radius: 100%;
+    /* text-shadow:rgb(44, 2, 2); */
+    text-shadow: 2px 2px 5px rgb(29, 1, 1);
+    background-color: rgb(250, 237, 163);
+    border-radius: 50%;
     padding: 1em;
     text-align: left;
-    width: 10%;
+    width: 20%;
+    color: darkred;
 }
 
 #content_section {
@@ -102,13 +118,6 @@ button {
 /*general stying for page*/ 
 * { box-sizing: border-box; }
 
-body { 
-  font-family: sans-serif;
-  background:url("img/stormynight.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  color:white;
-}
 
 /*styling for Scene*/
 .scene {
@@ -182,14 +191,16 @@ body {
 label { margin-right: 10px; }
 
 input {
-    background-color: rgb(144, 127, 244);
+    /* background-color: rgb(144, 127, 244); */
+    background-color: rgb(250, 163, 163);
     border:rgb(23, 24, 24) solid .15em;
     margin: 1em;
 
 }
 
 textarea {
-    background-color: rgb(144, 127, 244);
+    /* background-color: rgb(144, 127, 244); */
+    background-color: rgb(250, 163, 163);
     border:rgb(23, 24, 24) solid .15em;
     margin: 1em;
 }
