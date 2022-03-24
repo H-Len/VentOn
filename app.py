@@ -11,7 +11,7 @@ from sqlalchemy import Column, Integer, DateTime
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/database.db'
 db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'k3n%L$knn(9()wl_-o'
 
@@ -27,7 +27,7 @@ class Post(db.Model):
 
 
 def get_db_connection():
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('db/database.db')
     conn.row_factory = sqlite3.Row
     return conn
 
