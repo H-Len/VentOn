@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!-- speech to text -->
+<div class="mycontainer">
+    <h1>Speed up the vent by speaking!</h1>
+    <h3>Speech to text conversion using JavaScript</h3>
+
+    <div class="mywebapp"> 
+        <div class="input">
+            <textarea id="textbox" rows="6"></textarea>
+        </div>         
+        <button id="start-btn" title="Start">Start</button>
+        <p id="instructions">Press the Start button</p>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+<!-- speechSynthesis.getVoices() -->
