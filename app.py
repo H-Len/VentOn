@@ -22,8 +22,8 @@ class Post(db.Model):
     title = db.Column(db.Text, nullable=False) 
     content = db.Column(db.Text, nullable=False)
 
-    def __repr__(self):
-        return '<Post %r>' % self.content
+def __repr__(self):
+    return '<Post %r>' % self.content
 
 
 def get_db_connection():
@@ -34,7 +34,7 @@ def get_db_connection():
 def get_post(post_id):
     conn = get_db_connection()
     post = conn.execute('SELECT * FROM post WHERE id = ?',
-                         (post_id,)).fetchone()
+                            (post_id,)).fetchone()
     conn.close()
     if post is None:
         abort(404)
@@ -42,8 +42,7 @@ def get_post(post_id):
 
 @app.route('/')
 def index():
-
-    ROWS_PER_PAGE = 5
+    ROWS_PER_PAGE = 10
     page = request.args.get('page', 1, type=int)
 
     posts = Post.query.paginate(page=page, per_page=ROWS_PER_PAGE)
@@ -51,6 +50,21 @@ def index():
 
 @app.route('/speak', methods=('GET', 'POST'))
 def speak():
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+
+        if not title:
+            flash('Title is required!')
+        elif not content:
+            flash('Content is required!')
+        else:
+
+            new_add = Post(title=title, content=content)
+            db.session.add(new_add)
+            db.session.commit()
+
+            return redirect(url_for('index'))
     return render_template('speak.html')
 
 @app.route('/create', methods=('GET', 'POST'))

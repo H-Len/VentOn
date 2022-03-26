@@ -1,22 +1,49 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="div-container">
+<!-- <container> -->
+    <!-- speech to text -->
+    <div class="mycontainer">
+        <h1>Speed up the vent by speaking!</h1>
+        <h3>Speach to text conversion using JavaScript. 
+            When finished, copy and paste into other cell and click submit!</h3>
 
-
-<!-- speech to text -->
-<div class="mycontainer">
-    <h1>Speed up the vent by speaking!</h1>
-    <h3>Speech to text conversion using JavaScript</h3>
-
-    <div class="mywebapp"> 
-        <div class="input">
-            <textarea id="textbox" rows="6"></textarea>
-        </div>         
-        <button id="start-btn" title="Start">Start</button>
-        <p id="instructions">Press the Start button</p>
+        <div class="mywebapp">
+            <button id="start-btn" title="Start">Start</button>
+            <p id="instructions">Press the Start button to start dictating</p> 
+            <div class="input">
+                <textarea id="textbox" rows="20" cols="60"></textarea>
+            </div>         
+        </div>
     </div>
-</div>
+<!-- </container> -->
+<!-- </div> -->
+<br></br>
+<!-- <div class="grid-container"> -->
+<!-- <container> -->
+    <form method="post">
+        <label for="title">Title</label>
+        <br>
+        <input type="text" name="title"
+            placeholder="Post title"
+            value="{{ request.form['title'] }}"></input>
+        <br>
 
+        <label for="content">Post Content</label>
+        <br>
+        <textarea id="create"
+                name="content"
+                placeholder="Post content"
+                rows="30"
+                cols="40"
+                >{{ request.form['content'] }}</textarea>
+        <br>
+        <h5>publish up here ^</h5>
+        <button type="submit">Submit</button>
+    </form>
+<!-- </container> -->
+</div>
 
 
 {% endblock %}

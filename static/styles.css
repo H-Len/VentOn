@@ -188,13 +188,17 @@ button {
 .cube__face--5   { transform: rotateX( 90deg) translateZ(100px); }
 .cube__face--6 { transform: rotateX(-90deg) translateZ(100px); }
 
-label { margin-right: 10px; }
+label { 
+    margin-right: 10px;
+    /* float: right; */
+}
 
 input {
     /* background-color: rgb(144, 127, 244); */
     background-color: rgb(250, 163, 163);
     border:rgb(23, 24, 24) solid .15em;
     margin: 1em;
+    /* float: right; */
 
 }
 
@@ -270,7 +274,7 @@ btn {
 }
 
 #create {
-    float: right;
+    /* float: right; */
     margin-bottom: 5em;
 }
 
@@ -284,3 +288,17 @@ btn {
     border-radius: 46%;
 }
 
+
+.div-container {
+    display: grid;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 15px;
+    align-content: space-evenly;
+    /* grid-template-rows: auto; */
+    grid-template-columns: auto auto auto auto;
+}
+
+#textbox {
+    width: 60%
+}
