@@ -72,6 +72,9 @@ Showing page {{ posts.page }} of {{ posts.pages }}
             <thead class="thead-dark">
                 <tr>
                     <!-- <th>S/N</th> -->
+                    <th>Mood before writing [1-5 fabulous]</th>
+                    <!-- <th> / </th> -->
+                    <th>Mood after writing [1-5 fabulous]</th>
                     <th>Date Created</th>
                     <th></th>
                     <th>Title</th>
@@ -81,6 +84,9 @@ Showing page {{ posts.page }} of {{ posts.pages }}
                 {% for post in posts.items %}
                 <tr>
                     <!-- <th scope="row">{{ loop.index }}</th> -->
+                    <td>{{ post.init_mood }}</td>
+                    <!-- <td> / </td> -->
+                    <td>{{ post.final_mood }}</td>
                     <td>{{ post.created }}</td>
                     <td>:</td>
                     <td>{{ post.title }}</td>
