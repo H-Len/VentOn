@@ -21,6 +21,9 @@ class Post(db.Model):
     created = db.Column(db.DateTime, nullable=False, default=datetime.now)
     title = db.Column(db.Text, nullable=False) 
     content = db.Column(db.Text, nullable=False)
+    init_mood = db.Column(db.SmallInteger)
+    final_mood = db.Column(db.SmallInteger)
+
 
 def __repr__(self):
     return '<Post %r>' % self.content
@@ -70,16 +73,18 @@ def speak():
 @app.route('/create', methods=('GET', 'POST'))
 def create():
     if request.method == 'POST':
+        init_mood = request.form.get('imood')
         title = request.form['title']
         content = request.form['content']
-
+        final_mood = request.form['pmood']
+        
         if not title:
             flash('Title is required!')
         elif not content:
             flash('Content is required!')
         else:
 
-            new_add = Post(title=title, content=content)
+            new_add = Post(title=title, content=content, init_mood=init_mood, final_mood=final_mood)
             db.session.add(new_add)
             db.session.commit()
 
@@ -91,8 +96,10 @@ def edit(id):
     post = db.session.query(Post).get(id)
 
     if request.method == 'POST':
+        init_mood = request.form.get('imood')
         title = request.form['title']
         content = request.form['content']
+        final_mood = request.form['pmood']
 
         if not title:
             flash('Title is required!')
@@ -103,19 +110,23 @@ def edit(id):
         else:
             post.title = title
             post.content = content
+            post.init_mood = init_mood
+            post.final_mood = final_mood
+            db.session.commit()
+            
+            new_add = Post(title=title, content=content, init_mood=init_mood, final_mood=final_mood)
+            db.session.add(new_add)
             db.session.commit()
 
             return redirect(url_for('index'))
 
     return render_template('edit.html', post=post)
 
+#edit route to allow connection/deletion
 @app.route('/<int:id>/delete/', methods=('POST',))
 def delete(id):
-    post = get_post(id)
-    conn = get_db_connection()
-    conn.execute('DELETE FROM post WHERE id = ?', (id,))
-    conn.commit()
-    conn.close()
+    post = db.session.query(Post).get(id)
+    db.session.delete(id)
     flash('"{}" was successfully deleted!'.format(post['title']))
     return redirect(url_for('index'))
 
