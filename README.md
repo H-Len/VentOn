@@ -35,4 +35,4 @@ This is a project that will use many different languages and skills I've learned
 ### License
  - opensource
 
-#### Copyright (c) 2019 Hannah Melendy
+#### Copyright (c) 2022 Hannah Melendy
