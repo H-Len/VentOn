@@ -54,16 +54,22 @@ def index():
 @app.route('/speak', methods=('GET', 'POST'))
 def speak():
     if request.method == 'POST':
+        init_mood = request.form.get('imood')
         title = request.form['title']
         content = request.form['content']
+        final_mood = request.form.get('pmood')
 
         if not title:
             flash('Title is required!')
         elif not content:
             flash('Content is required!')
+        elif not init_mood:
+            flash('How were you feeling before writing?')
+        elif not final_mood:
+            flash('How were you feeling after writing?')
         else:
 
-            new_add = Post(title=title, content=content)
+            new_add = Post(title=title, content=content, init_mood=init_mood, final_mood=final_mood)
             db.session.add(new_add)
             db.session.commit()
 
@@ -76,12 +82,16 @@ def create():
         init_mood = request.form.get('imood')
         title = request.form['title']
         content = request.form['content']
-        final_mood = request.form['pmood']
+        final_mood = request.form.get('pmood')
         
         if not title:
             flash('Title is required!')
         elif not content:
             flash('Content is required!')
+        elif not init_mood:
+            flash('How were you feeling before writing?')
+        elif not final_mood:
+            flash('How were you feeling after writing?')
         else:
 
             new_add = Post(title=title, content=content, init_mood=init_mood, final_mood=final_mood)
@@ -99,14 +109,16 @@ def edit(id):
         init_mood = request.form.get('imood')
         title = request.form['title']
         content = request.form['content']
-        final_mood = request.form['pmood']
+        final_mood = request.form.get('pmood')
 
         if not title:
             flash('Title is required!')
-
         elif not content:
             flash('Content is required!')
-
+        elif not init_mood:
+            flash('How were you feeling before writing?')
+        elif not final_mood:
+            flash('How were you feeling after writing?')
         else:
             post.title = title
             post.content = content
@@ -122,21 +134,16 @@ def edit(id):
 
     return render_template('edit.html', post=post)
 
-#edit route to allow connection/deletion
-@app.route('/<int:id>/delete/', methods=('POST',))
-def delete(id):
-    post = db.session.query(Post).get(id)
-    db.session.delete(id)
-    flash('"{}" was successfully deleted!'.format(post['title']))
-    return redirect(url_for('index'))
 
 
 @app.route('/grateful', methods=('GET', 'POST'))
 def grateful():
 
     if request.method == 'POST':
+        init_mood = request.form.get('imood')
         title = request.form['title']
         content = request.form['content']
+        final_mood = request.form['pmood']
 
         if not title:
             flash('Title is required!')
@@ -145,7 +152,7 @@ def grateful():
         else:
 
 
-            new_add = Post(title=title, content=content)
+            new_add = Post(title=title, content=content, init_mood=init_mood, final_mood=final_mood)
             db.session.add(new_add)
             db.session.commit()
 
