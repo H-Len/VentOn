@@ -11,7 +11,7 @@
 
         <div class="mywebapp">
             <button id="start-btn" title="Start">Start</button>
-            <p id="instructions">Press the Start button to start dictating</p> 
+            <p id="instructions">Note your mood and then press the Start button to start dictating</p> 
             <div class="input">
                 <textarea id="textbox" rows="20" cols="60"></textarea>
             </div>         
@@ -23,6 +23,18 @@
 <!-- <div class="grid-container"> -->
 <!-- <container> -->
     <form method="post">
+        <p>Please select your mood at the start of the vent:</p>
+        <input type="radio" name="imood" value="1">
+        <label for="mood1">1 😖</label>
+        <input type="radio" name="imood" value="2">
+        <label for="mood1">2 😕</label>       
+         <input type="radio" name="imood" value="3">
+        <label for="mood1">3 😑</label>       
+        <input type="radio" name="imood" value="4">
+        <label for="mood1">4 😏</label>        
+        <input type="radio" name="imood" value="5">
+        <label for="mood1">5 😃</label>
+        <br>
         <label for="title">Title</label>
         <br>
         <input type="text" name="title"
@@ -40,6 +52,19 @@
                 >{{ request.form['content'] }}</textarea>
         <br>
         <h5>publish up here ^</h5>
+        <br>
+        <p>Please select your mood at the end of the vent:</p>
+        <input type="radio" id="mood1" name="pmood" value="1">
+        <label for="mood1">1 😖</label>
+        <input type="radio" id="mood2" name="pmood" value="2">
+        <label for="mood2">2 😕</label>       
+         <input type="radio" id="mood3" name="pmood" value="3">
+        <label for="mood3">3 😑</label>       
+        <input type="radio" id="mood4" name="pmood" value="4">
+        <label for="mood4">4 😏</label>        
+        <input type="radio" id="mood5" name="pmood" value="5">
+        <label for="mood5">5 😃</label>
+        <br>
         <button type="submit">Submit</button>
     </form>
 <!-- </container> -->
