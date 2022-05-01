@@ -2,7 +2,7 @@
  fullstack journal
 
 # culminate_project
-This is a project that will use many different languages and skills I've learned over the years to create a journal with a DB.
+This is a project that will use many different languages and skills I've learned over the years, and continue to learn, to create a journal with a DB.
 
 ## BY Hannah Melendy
 
@@ -30,7 +30,7 @@ This is a project that will use many different languages and skills I've learned
 ### Technologies Used 
  - FRONTEND: html, css, javascript
  - BACKEND: Python, Flask, SQLAlchemy
- - DB: SQLite
+ - DB: postgreSQL
 
 ### License
  - opensource
