@@ -9,9 +9,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import TIMESTAMP, insert
 from sqlalchemy import Column, Integer, DateTime
 
-
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost:5432/database'
 db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'k3n%L$knn(9()wl_-o'
 
