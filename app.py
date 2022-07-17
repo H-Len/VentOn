@@ -6,6 +6,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect, abo
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import TIMESTAMP, insert
 from sqlalchemy import Column, Integer, DateTime
+import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost:5432/database'
@@ -163,4 +164,5 @@ def grateful():
 
 
 if __name__ == '__main__':
-    app.run(debug= True, port = 5000)
+    port=int(os.environ.get('PORT',5000))
+    app.run(debug= True, port = port)
