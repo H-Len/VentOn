@@ -2,8 +2,6 @@ from crypt import methods
 from datetime import datetime
 from email.policy import default
 from multiprocessing import connection
-import sqlite3
-from turtle import title
 from flask import Flask, render_template, request, url_for, flash, redirect, abort
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import TIMESTAMP, insert
@@ -28,19 +26,19 @@ def __repr__(self):
     return '<Post %r>' % self.content
 
 
-def get_db_connection():
-    conn = sqlite3.connect('db/database.db')
-    conn.row_factory = sqlite3.Row
-    return conn
+# def get_db_connection():
+#     conn = sqlite3.connect('db/database.db')
+#     conn.row_factory = sqlite3.Row
+#     return conn
 
-def get_post(post_id):
-    conn = get_db_connection()
-    post = conn.execute('SELECT * FROM post WHERE id = ?',
-                            (post_id,)).fetchone()
-    conn.close()
-    if post is None:
-        abort(404)
-    return post
+# def get_post(post_id):
+#     conn = get_db_connection()
+#     post = conn.execute('SELECT * FROM post WHERE id = ?',
+#                             (post_id,)).fetchone()
+#     conn.close()
+#     if post is None:
+#         abort(404)
+#     return post
 
 @app.route('/')
 def index():
