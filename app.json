@@ -1,0 +1,15 @@
+{
+  "name": "VentOn",
+  "description": "A journal into which to write or speak entries.",
+  "image": "heroku/python",
+  "repository": "https://github.com/H-Len/VentOn",
+  "keywords": ["python" ],
+  "addons": [ "heroku-postgresql" ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "python app.py"
+      }
+    }
+  }
+}

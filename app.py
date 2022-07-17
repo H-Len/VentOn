@@ -93,7 +93,7 @@ def create():
             flash('How were you feeling after writing?')
         else:
 
-            new_add = Post(title=title, content=content, init_mood=init_mood, final_mood=final_mood)
+            new_add = Post(title=title, content='created: ' + str(datetime.now()) + ' -- ' + content, init_mood=init_mood, final_mood=final_mood)
             db.session.add(new_add)
             db.session.commit()
 
@@ -125,7 +125,7 @@ def edit(id):
             post.final_mood = final_mood
             db.session.commit()
             
-            new_add = Post(title=title, content=content, init_mood=init_mood, final_mood=final_mood)
+            new_add = Post(title=title, content=content + ' -- edited: ' + str(datetime.now()), init_mood=init_mood, final_mood=final_mood)
             db.session.add(new_add)
             db.session.commit()
 

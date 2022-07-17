@@ -35,3 +35,9 @@ button:focus {
         margin-bottom: 10px;
 }
 }
+
+h2.hi {
+    /* background-color: azure; */
+    /* text-shadow: #1e2440; */
+    /* border-radius: 10%; */
+}

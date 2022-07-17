@@ -1,0 +1,4 @@
+sqlite3
+sqlalchemy
+flask_sqlalchemy
+turtle
