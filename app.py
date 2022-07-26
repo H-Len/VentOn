@@ -165,7 +165,3 @@ def grateful():
 
 if __name__ == '__main__':
     app.run(debug= True, port = 5000)
-elif __name__ == '__main__':
-    app.run(debug= True, port=5340)
-else:
-    app.run(debug=True, port=33507)
