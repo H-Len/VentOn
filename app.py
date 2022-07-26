@@ -5,7 +5,7 @@ from multiprocessing import connection
 from flask import Flask, render_template, request, url_for, flash, redirect, abort
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import TIMESTAMP, insert
-from sqlalchemy import Column, Integer, DateTime
+from sqlalchemy import Column, Integer, DateTimexx
 import os
 
 app = Flask(__name__)
@@ -164,6 +164,4 @@ def grateful():
 
 
 if __name__ == '__main__':
-    port=int(os.environ.get('PORT', 5000))
-    print(port)
-    app.run(debug= True, port = 33507)
+    app.run(debug= True, port = 5000)
