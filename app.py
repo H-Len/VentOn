@@ -5,7 +5,7 @@ from multiprocessing import connection
 from flask import Flask, render_template, request, url_for, flash, redirect, abort
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import TIMESTAMP, insert
-from sqlalchemy import Column, Integer, DateTime
+from sqlalchemy import Column, Integer, DateTimexx
 import os
 
 app = Flask(__name__)
@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = 'k3n%L$knn(9()wl_-o'
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    created = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    created = db.Column(db.DateTime, nullable=False, default=datetime.now)
     title = db.Column(db.Text, nullable=False) 
     content = db.Column(db.Text, nullable=False)
     init_mood = db.Column(db.SmallInteger)
@@ -164,4 +164,6 @@ def grateful():
 
 
 if __name__ == '__main__':
-    app.run(debug= True, port = 5000)
+    port=int(os.environ.get('PORT', 5000))
+    print(port)
+    app.run(debug= True, port = 33507)
