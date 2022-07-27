@@ -9,7 +9,7 @@ from sqlalchemy import Column, Integer, DateTime
 import os
 
 try:
-    DATABASE_URL = os.environ['DATABASE_URL']
+    DATABASE_URL = os.environ.get('DATABASE_URL').replace('postgres://', 'postgresql://')
 except KeyError as err:
     DATABASE_URL = 'postgresql://localhost:5432/database'
 
