@@ -8,8 +8,13 @@ from sqlalchemy import TIMESTAMP, insert
 from sqlalchemy import Column, Integer, DateTime
 import os
 
+try:
+    DATABASE_URL = os.environ['DATABASE_URL']
+except KeyError as err:
+    DATABASE_URL = 'postgresql://localhost:5432/database'
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost:5432/database'
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL 
 db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'k3n%L$knn(9()wl_-o'
 
