@@ -164,6 +164,4 @@ def grateful():
 
 
 if __name__ == '__main__':
-    port=int(os.environ.get('PORT', 5000))
-    print(port)
     app.run(debug= True, port = 33507)
