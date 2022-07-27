@@ -5,7 +5,7 @@ from multiprocessing import connection
 from flask import Flask, render_template, request, url_for, flash, redirect, abort
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import TIMESTAMP, insert
-from sqlalchemy import Column, Integer, DateTimexx
+from sqlalchemy import Column, Integer, DateTime
 import os
 
 app = Flask(__name__)
