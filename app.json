@@ -8,7 +8,7 @@
   "environments": {
     "test": {
       "scripts": {
-        "test": "gunicorn app.py"
+        "test": "gunicorn app:app"
       }
     }
   }
