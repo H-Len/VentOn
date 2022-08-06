@@ -1,0 +1,59 @@
+body {
+    background: #1e2440;
+    color: #f2efe2;
+    font-size: 16px;
+}
+
+
+button:focus {
+    outline: 0;
+}
+
+.mycontainer {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 150px 100px;
+    text-align: center;
+}
+
+
+.mywebapp {
+    margin: 50px auto;
+}
+
+#textbox {
+    margin:auto;
+}
+
+@media (max-width: 768px) {
+    .mycontainer {
+    width: 85vw;
+    max-width: 85vw;
+    }
+
+    button {
+        margin-bottom: 10px;
+    }
+}
+
+/* h2.hi {
+    background-color: azure;
+    text-shadow: #1e2440;
+    border-radius: 10%;
+} */
+
+button {
+    background: #383434;
+    border: 1px solid rgb(11, 10, 10);
+    padding: 10px 30px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+button:active {
+background: #2c822a;
+-webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+        box-shadow: inset 0px 0px 5px #c1c1c1;
+    outline: none;
+}

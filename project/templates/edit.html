@@ -22,7 +22,8 @@
         <br>
         <input type="text" name="title"
                placeholder="Post title"
-               value="{{ request.form['title'] or post['title'] }}"></input>
+               value="{{ request.form['title'] or post['title'] 
+}}"></input>
         <br>
 
         <label for="content">Post Content</label>
@@ -31,9 +32,11 @@
                   placeholder="Post content"
                   rows="15"
                   cols="60"
-                  >{{ request.form['content'] or post['content'] }}</textarea>
+                  >{{ request.form['content'] or post['content'] 
+}}</textarea>
         <br>
-        <h3>You're mood score after writing was recorded as {{ post['final_mood'] }}</h3>
+        <h3>You're mood score after writing was recorded as {{ 
+post['final_mood'] }}</h3>
         <p>Please select your mood at the end of the vent:</p>
         <input type="radio" name="pmood" value="1">
         <label for="mood1">1 😖</label>
