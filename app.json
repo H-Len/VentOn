@@ -1,5 +1,5 @@
 {
-  "name": "VentOn",
+  "name": "VentOn 2.0",
   "description": "A journal into which to write or speak entries.",
   "image": "heroku/python",
   "repository": "https://github.com/H-Len/VentOn",
@@ -8,7 +8,7 @@
   "environments": {
     "test": {
       "scripts": {
-        "test": "python app.py test"
+        "test": "python main.py test"
       }
     }
   }

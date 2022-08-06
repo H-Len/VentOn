@@ -1,153 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/styles.css">
-    <title> {% block title %}{% endblock %} - FlaskApp</title>
-    <style>
-        .post {
-            padding: 10px;
-            margin: 5px;
-            background-color: #f3f3f3
-        }
-
-        nav a {
-            color: #27030b;
-            font-size: 3em;
-            margin-left: 50px;
-            text-decoration: none;
-        }
-
-        .alert {
-            padding: 20px;
-            margin: 5px;
-            color: #970020;
-            background-color: #ffd5de;
-        }
-    </style>
-    <style>
-        .dropdown {
-        position: relative;
-        display: inline-block;
-        }
-        
-        .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: lightseagreen;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
-        z-index: 1;
-        border-top-right-radius: 25%;
-        }
-        
-        .dropdown:hover .dropdown-content {
-        display: block;
-        }
-        </style>
-    {% block javascript %}
-    <script>
-        function toggle_display(id){
-            el = document.querySelector(id);
-
-            // if (id == null){
-            //     id = 'postno' + post['id']|string
-            // }
-
-            // alert('peekaboo')
-            if(el.style.display == 'block'){
-                el.style.display = 'none'
-            }else{
-                el.style.display = 'block'
-            }
-
-
-        }
-        window.onload = function() {
-                //select the classes we require
-        var cube = document.querySelector('.cube');
-        var rollBtn = document.querySelector('.rollBtn');
-        var currentClass = '';
-
-        //this function will generate a random number between 1 and 6 (or whatever value you send it)
-        function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-        }
-
-        //our main roll dice function on click
-        function rollDice() {
-        //genberate a random number between 1 and 6 with out getRandomInt function
-        var randNum =getRandomInt(1,7); 
-        console.log(randNum )
-        //generate a class with the random number between 1 - 6 called showClass
-        var showClass = 'show-' + randNum;
-        console.log(showClass)
-        // if there is a class already selected remove it
-        if ( currentClass ) {
-            cube.classList.remove( currentClass );
-        }
-        // add the new showclass with the generated number
-        cube.classList.add( showClass );
-        //set the current class to the randomly generated number
-        currentClass = showClass;
-        }
-
-
-        // set initial side
-        rollDice();
-        // on click eventlistener for the button element
-        rollBtn.addEventListener("click", rollDice);
-        }   
-        
-
-    
-    </script>
-
-    <!-- speach to text head-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>Speech to text conversion using JavaScript</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- <link rel="stylesheet" href="templates/style.css"> -->
-    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
-    <!-- /speach to text head end-->
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    
-    {% endblock %}
-</head>
-<body>
-    <nav>
-        <h2 class="hi"><strong>Mental Bot:</strong> Here to serve your health needs</h2>
-        <a href="{{ url_for('index') }}">VentOn!!!</a>
-        <a href="{{ url_for('create') }}">Create</a>
-        <a href="{{ url_for('grateful') }}">Gratitude</a>
-        <a href="{{ url_for('speak') }}">Speak it</a>
-    </nav>
-
-    <hr>
-    <div class="content">
-        {% for message in get_flashed_messages() %}
-            <div class="alert">{{ message }}</div>
-        {% endfor %}
-
-        {% block content %} {% endblock %}
-    </div>
-
+    <title>VentOn!!! 2.0</title>
+    <!-- original styling:-->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/> -->
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/speak_style.css">
+    <link rel="stylesheet" href="/static/dropdown_menu.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/static/script.js"></script>
+    <script src="/static/dice.js"></script>
+</head>
 
+<body>
+    <section class="hero is-primary is-fullheight">
+
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a href="{{ url_for('main.index') }}" class="navbar-item">
+                                Home
+                            </a>
+                            {% if not current_user.is_authenticated %}
+                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
+                                Login
+                            </a>
+                            {% endif %}
+                            {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('main.profile') }}" class="navbar-item">
+                                Profile
+                                
+                            </a>
+                            {% endif %}
+                            {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('main.journal') }}" class="navbar-item">
+                                Journal
+                            </a>
+                            {% endif %}
+                            {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('main.create') }}" class="navbar-item">
+                                Create
+                            </a>
+                            {% endif %}
+                            {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('main.speak') }}" class="navbar-item">
+                                Speak
+                            </a>
+                            {% endif %}
+                            {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                                Logout
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="hero-body">
+            <div class="container has-text-centered">
+               {% block content %}
+               {% endblock %}
+            </div>
+        </div>
+    </section>
 </body>
-
 
 </html>

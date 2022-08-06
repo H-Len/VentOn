@@ -1,5 +1,5 @@
 var SpeechRecognition = window.webkitSpeechRecognition;
-  
+
 var recognition = new SpeechRecognition();
 
 var Textbox = $('#textbox');
@@ -14,10 +14,10 @@ recognition.onresult = function(event) {
   var current = event.resultIndex;
 
   var transcript = event.results[current][0].transcript;
- 
+
     Content += transcript;
     Textbox.val(Content);
-  
+
 };
 
 recognition.onstart = function() { 
@@ -43,4 +43,4 @@ $('#start-btn').on('click', function(e) {
 
 Textbox.on('input', function() {
   Content = $(this).val();
-})
+}) 
