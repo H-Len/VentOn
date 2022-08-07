@@ -1,25 +1,39 @@
-/* body {
+body {
     background-image: url("img/stormynight.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: darkslategrey;
-} */
-body { 
+}
+/* body { 
     font-family: sans-serif;
-    background:url("img/james_star.jpg");
+    /* background:url("img/james_star.jpg");
+    background-image:url("img/james_star.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:rgb(151, 151, 151);  
+  } */
+  
+/* .hero {
+    background-image:url("img/james_star.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     color:rgb(151, 151, 151);
-    
-  }
-  
+} */
+
 nav {
     padding: 1em;
     padding-top: 2.5em;
     padding-bottom: 2.5em;
     background-color: black;
-    text-shadow: 2px 2px 5px rgb(250, 163, 163);
+    /* text-shadow: 2px 2px 5px rgb(250, 163, 163); */
+    text-align: center;
+    /* background-image:url("img/james_star.jpg"); */
+    background-repeat: no-repeat;
 
+}
+
+.navbar-item {
+    padding: 1em;    
 }
 
 h1 {
@@ -276,6 +290,11 @@ btn {
 #create {
     /* float: right; */
     margin-bottom: 5em;
+    background-color: #6aa6ed;
+}
+
+input {
+    background-color: #6aa6ed;
 }
 
 #mic_btn {

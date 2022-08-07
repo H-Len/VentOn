@@ -4,22 +4,23 @@
 <container>
 <!-- Pagination Links-->
 <div class="text-right">
-    <a href="{{ url_for('index', page=posts.prev_num) }}"
+    <a href="{{ url_for('main.journal', page=posts.prev_num) }}"
     class="btn btn-outline-dark 
     {% if posts.page == 1 %}disabled{% endif %}">
         &laquo;
     </a>
 <!-- Loop through the number of pages to display a link for each-->
-    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, 
+left_current=1, right_current=2) %}
 {% if page_num %}
 <!-- Check for the active page and set the link to "Active"-->
             {% if posts.page == page_num %}
-            <a href="{{ url_for('index', page=page_num) }}"
+            <a href="{{ url_for('main.journal', page=page_num) }}"
             class="btn btn-dark">
                 {{ page_num }}
             </a>
             {% else %}
-            <a href="{{ url_for('index', page=page_num) }}"
+            <a href="{{ url_for('main.journal', page=page_num) }}"
             class="btn btn-outline-dark">
                 {{ page_num }}
             </a>
@@ -28,7 +29,7 @@
             ...
         {% endif %}
     {% endfor %}
-    <a href="{{ url_for('index', page=posts.next_num) }}"
+    <a href="{{ url_for('main.journal', page=posts.next_num) }}"
     class="btn btn-outline-dark 
     {% if posts.page == posts.pages %}disabled{% endif %}">
         &raquo;
@@ -50,17 +51,24 @@ Showing page {{ posts.page }} of {{ posts.pages }}
 
 <button class = "rollBtn">Roll the Dice</button>
 </div>
-    <button onclick="toggle_display('#content_section')">Toggle display</button>
+    <button onclick="toggle_display('#content_section')">Toggle 
+display</button>
     <div id="content_section">
     <!-- <button type="button" onclick="show">hide this</button> -->
     {% for post in posts.items %}
-        <p class="{{ post['title']}} vent" onclick="{{'toggle_display(\'#postno' + post['id']|string + '\')' }}" >{{ post['title'] }}
-            <!-- <button class="{{ post['title']}}" onclick="{{'toggle_display(\'#postno' + post['id']|string + '\')' }}" >{{ post['title'] }}</button> -->
-            <div class='entry' id="{{ 'postno' + post['id']|string }}" display="none">
+        <p class="{{ post['title']}} vent" 
+onclick="{{'toggle_display(\'#postno' + post['id']|string + '\')' }}" >{{ 
+post['title'] }}
+            <!-- <button class="{{ post['title']}}" 
+onclick="{{'toggle_display(\'#postno' + post['id']|string + '\')' }}" >{{ 
+post['title'] }}</button> -->
+            <div class='entry' id="{{ 'postno' + post['id']|string }}" 
+display="none">
                 <p class="created">{{ post['created'] }}</p>
                 <h2>{{ post['title'] }}</h2>
-                <p><span class="formatted_post">{{ post['content'] }}</span></p>
-                <a href="{{ url_for('edit', id=post['id']) }}">Edit</a>
+                <p><span class="formatted_post">{{ post['content'] 
+}}</span></p>
+                <a href="{{ url_for('main.edit', id=post['id']) }}">Edit</a>
             </div>
         </p> 
     {% endfor %}
@@ -98,4 +106,5 @@ Showing page {{ posts.page }} of {{ posts.pages }}
 
 </container>
 {% endblock %}
+
 

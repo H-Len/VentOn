@@ -1,38 +1,9 @@
 {% extends 'base.html' %}
+ 
 
 {% block content %}
-<div class="div-container">
-<!-- <container> -->
-    <!-- speech to text -->
-    <div class="mycontainer">
-
-        <div class="mywebapp">
-            <h2>Note your mood before start of vent –></h2>
-            <h3>Then press the Start button to begin dictating in the grey box.</h3>
-            <button id="start-btn" title="Start">Start</button>
-            <div class="input">
-                <textarea id="textbox" rows="20" cols="60"></textarea>
-            </div>       
-        </div>
-        <h3>Tip on Mac:</h3> 
-        <ul> 
-            <li>cmd-a to highlight</li>
-            <li>cmd-c to copy</li>
-            <li>cmd-v to paste</li>
-        </ul>
-    </div>
-<!-- </container> -->
-<!-- </div> -->
-<br></br>
-<!-- <div class="grid-container"> -->
-<!-- <container> -->
-    
+    <h1>{% block title %} Add a New Post {% endblock %}</h1>
     <form method="post">
-
-
-
-
-        
         <p>Please select your mood at the start of the vent:</p>
         <input type="radio" name="imood" value="1">
         <label for="mood1">1 😖</label>
@@ -45,11 +16,9 @@
         <input type="radio" name="imood" value="5">
         <label for="mood1">5 😃</label>
         <br>
-        <label for="title">Title</label>
-        <br>
         <input type="text" name="title"
-            placeholder="Post title"
-            value="{{ request.form['title'] }}"></input>
+               placeholder="Post title"
+               value="{{ request.form['title'] }}"></input>
         <br>
 
         <label for="content">Post Content</label>
@@ -57,11 +26,9 @@
         <textarea id="create"
                 name="content"
                 placeholder="Post content"
-                rows="30"
-                cols="40"
+                rows="15"
+                cols="60"
                 >{{ request.form['content'] }}</textarea>
-        <br>
-        <h5>publish up here ^</h5>
         <br>
         <p>Please select your mood at the end of the vent:</p>
         <input type="radio" id="mood1" name="pmood" value="1">
@@ -77,12 +44,4 @@
         <br>
         <button type="submit">Submit</button>
     </form>
-<!-- </container> -->
-</div>
-
-
 {% endblock %}
-
-
-
-<!-- speechSynthesis.getVoices() -->
