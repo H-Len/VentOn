@@ -16,7 +16,7 @@ def create_app():
         else:
             DATABASE_URL = 'postgresql://localhost:5432/database'
         ###print out DATABASE_URL
-        print(DATABASE_URL)
+        print('this is the thing we\'re looking for' + DATABASE_URL)
     except KeyError as err:
         DATABASE_URL = 'postgresql://localhost:5432/database'
     app.config['SECRET_KEY'] = 'k3n%L$knn(9()wl_-o'
