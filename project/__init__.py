@@ -12,7 +12,7 @@ def create_app():
     try:
         DATABASE_URL = os.environ.get('DATABASE_URL')
         if isinstance(DATABASE_URL, str):
-            DATABASE_URL.replace('postgres://', 'postgresql://')
+            DATABASE_URL = DATABASE_URL.replace('postgres://', 'postgresql://')
         else:
             DATABASE_URL = 'postgresql://localhost:5432/database'
         ###print out DATABASE_URL
