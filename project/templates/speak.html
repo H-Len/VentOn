@@ -1,91 +1,90 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<container>
 
-    <div class="div-container">
-    <!-- <container> -->
-        <!-- speech to text -->
-        <div class="mycontainer">
+<div class="div-container">
+<!-- <container> -->
+    <!-- speech to text -->
+    <div class="mycontainer">
 
-            <div class="mywebapp">
-                <h2>Note your mood before start of vent –></h2>
-                <h3>Then press the Start button to begin dictating in the grey box.</h3>
-                <button id="start-btn" title="Start">Start</button>
-                <div class="input">
-                    <textarea id="textbox" rows="20" cols="60"></textarea>
-                </div>       
-            </div>
-            <h3>Tip on Mac:</h3> 
-            <ul> 
-                <li>cmd-a to highlight</li>
-                <li>cmd-c to copy</li>
-                <li>cmd-v to paste</li>
-            </ul>
+        <div class="mywebapp">
+            <h2>Note your mood before start of vent –></h2>
+            <h3>Then press the Start button to begin dictating in the grey box.</h3>
+            <button id="start-btn" title="Start">Start</button>
+            <div class="input">
+                <textarea id="textbox" rows="20" cols="60"></textarea>
+            </div>       
         </div>
-    <!-- </container> -->
-    <!-- </div> -->
-    <br></br>
-    <!-- <div class="grid-container"> -->
-    <!-- <container> -->
-        
-        <form method="post">
-
-
-
-
-            
-            <p>Please select your mood at the start of the vent:</p>
-            <input type="radio" name="imood" value="1">
-            <label for="mood1">1 😖</label>
-            <input type="radio" name="imood" value="2">
-            <label for="mood1">2 😕</label>       
-            <input type="radio" name="imood" value="3">
-            <label for="mood1">3 😑</label>       
-            <input type="radio" name="imood" value="4">
-            <label for="mood1">4 😏</label>        
-            <input type="radio" name="imood" value="5">
-            <label for="mood1">5 😃</label>
-            <br>
-            <label for="title">Title</label>
-            <br>
-            <input type="text" name="title"
-                placeholder="Post title"
-                value="{{ request.form['title'] }}"></input>
-            <br>
-
-            <label for="content">Post Content</label>
-            <br>
-            <textarea id="create"
-                    name="content"
-                    placeholder="Post content"
-                    rows="30"
-                    cols="40"
-                    >{{ request.form['content'] }}</textarea>
-            <br>
-            <h5>publish up here ^</h5>
-            <br>
-            <p>Please select your mood at the end of the vent:</p>
-            <input type="radio" id="mood1" name="pmood" value="1">
-            <label for="mood1">1 😖</label>
-            <input type="radio" id="mood2" name="pmood" value="2">
-            <label for="mood2">2 😕</label>       
-            <input type="radio" id="mood3" name="pmood" value="3">
-            <label for="mood3">3 😑</label>       
-            <input type="radio" id="mood4" name="pmood" value="4">
-            <label for="mood4">4 😏</label>        
-            <input type="radio" id="mood5" name="pmood" value="5">
-            <label for="mood5">5 😃</label>
-            <br>
-            <button type="submit">Submit</button>
-        </form>
-    <!-- </container> -->
+        <h3>Tip on Mac:</h3> 
+        <ul> 
+            <li>cmd-a to highlight</li>
+            <li>cmd-c to copy</li>
+            <li>cmd-v to paste</li>
+        </ul>
     </div>
+<!-- </container> -->
+<!-- </div> -->
+<br></br>
+<!-- <div class="grid-container"> -->
+<!-- <container> -->
+    
+    <form method="post">
 
-    <script src="/static/script.js"></script>
 
-    {% endblock %}
 
-</container>
+
+        
+        <p>Please select your mood at the start of the vent:</p>
+        <input type="radio" name="imood" value="1">
+        <label for="mood1">1 😖</label>
+        <input type="radio" name="imood" value="2">
+        <label for="mood1">2 😕</label>       
+         <input type="radio" name="imood" value="3">
+        <label for="mood1">3 😑</label>       
+        <input type="radio" name="imood" value="4">
+        <label for="mood1">4 😏</label>        
+        <input type="radio" name="imood" value="5">
+        <label for="mood1">5 😃</label>
+        <br>
+        <label for="title">Title</label>
+        <br>
+        <input type="text" name="title"
+            placeholder="Post title"
+            value="{{ request.form['title'] }}"></input>
+        <br>
+
+        <label for="content">Post Content</label>
+        <br>
+        <textarea id="create"
+                name="content"
+                placeholder="Post content"
+                rows="30"
+                cols="40"
+                >{{ request.form['content'] }}</textarea>
+        <br>
+        <h5>publish up here ^</h5>
+        <br>
+        <p>Please select your mood at the end of the vent:</p>
+        <input type="radio" id="mood1" name="pmood" value="1">
+        <label for="mood1">1 😖</label>
+        <input type="radio" id="mood2" name="pmood" value="2">
+        <label for="mood2">2 😕</label>       
+         <input type="radio" id="mood3" name="pmood" value="3">
+        <label for="mood3">3 😑</label>       
+        <input type="radio" id="mood4" name="pmood" value="4">
+        <label for="mood4">4 😏</label>        
+        <input type="radio" id="mood5" name="pmood" value="5">
+        <label for="mood5">5 😃</label>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+<!-- </container> -->
+</div>
+
+<script src="/static/script.js"></script>
+
+{% endblock %}
+
+
 
 <!-- speechSynthesis.getVoices() -->
