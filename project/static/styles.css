@@ -337,7 +337,6 @@ input {
 
     .navbar-item {
         page-break-after: always;
-        padding-bottom: 5em;
-        border: 2em black solid;
+        padding-bottom: 15rem;
     }
   }
