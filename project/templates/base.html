@@ -22,7 +22,9 @@
             <nav class="navbar">
                 <div class="container">
                     <div id="navbarMenuHeroA" class="navbar-menu">
-                        <div class="collapse" id="navbarToggleExternalContent">
+                        <button onclick="toggle_display('#content_section')">Toggle 
+                            display</button>
+                        <div id="content_section">~
                             <a href="{{ url_for('main.index') }}" class="navbar-item">
                                 Home
                             </a>
