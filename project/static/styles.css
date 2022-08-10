@@ -329,9 +329,15 @@ input {
     .navbar-menu {
         background-color: #3498DB;
         color: white;
-        padding: 20px;
+        padding: 16px;
         font-size: 16px;
-        border: 3en;
+        border: none;
         cursor: pointer;
+    }
+
+    .navbar-item {
+        page-break-after: always;
+        padding: 2em;
+        border: 2em;
     }
   }
