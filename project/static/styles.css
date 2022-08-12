@@ -55,6 +55,11 @@ h1 {
 
 }
 
+#menu_items {
+    display: none;
+    border-radius: 35%;
+}
+
 .post {
     display: none;
 }
