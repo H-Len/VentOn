@@ -20,11 +20,15 @@ body {
     color:rgb(151, 151, 151);
 } */
 
+.div-container {
+    background-color: aliceblue;
+}
+
 nav {
     padding: 1em;
     padding-top: 2.5em;
     padding-bottom: 2.5em;
-    background-color: black;
+    background-color: rgb(67, 131, 152);
     /* text-shadow: 2px 2px 5px rgb(250, 163, 163); */
     text-align: center;
     /* background-image:url("img/james_star.jpg"); */
