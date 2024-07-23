@@ -2,8 +2,9 @@ body {
     background-image: url("img/stormynight.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: darkslategrey;
+    background-color: rgb(59, 190, 190);
 }
+
 /* body { 
     font-family: sans-serif;
     /* background:url("img/james_star.jpg");
@@ -12,7 +13,7 @@ body {
     background-size: cover;
     color:rgb(151, 151, 151);  
   } */
-  
+
 /* .hero {
     background-image:url("img/james_star.jpg");
     background-repeat: no-repeat;
@@ -37,7 +38,7 @@ nav {
 }
 
 .navbar-item {
-    padding: 1em;    
+    padding: 1em;
 }
 
 h1 {
@@ -81,7 +82,7 @@ h1 {
     background-size: cover;
 
 
-}   
+}
 
 p {
     padding-left: 0.5em;
@@ -109,7 +110,7 @@ h2 {
     border: rgb(23, 24, 24) 40%;
     white-space: pre-wrap;
     border-radius: 35%;
-    color: rgb(46, 49, 53); 
+    color: rgb(46, 49, 53);
 }
 
 button {
@@ -138,80 +139,139 @@ button {
     color: silver;
 } */
 
-/*general stying for page*/ 
-* { box-sizing: border-box; }
+/*general stying for page*/
+* {
+    box-sizing: border-box;
+}
 
 
 /*styling for Scene*/
 .scene {
-  width: 200px;
-  height: 200px;
-  margin: 20px;
-  perspective:600px;
-  float: right;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    perspective: 600px;
+    float: right;
 }
 
-.rollBtn{
-  background:black;
-  color:white;
-  border: .2em solid lightgrey;
-  margin:auto 0;
-  font-size:1.5em;
-  margin-top:1em;
-  width:200px;
+.rollBtn {
+    background: black;
+    color: white;
+    border: .2em solid lightgrey;
+    margin: auto 0;
+    font-size: 1.5em;
+    margin-top: 1em;
+    width: 200px;
 
 }
 
 /*styling for 3D Cube*/
 .cube {
-  width:200px;
-  height: 200px;
-  position: relative;
-  transform-style: preserve-3d;
-  transform: translateZ(-100px);
-  transition: transform 1s;
-  
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    transition: transform 1s;
+
 }
 
 /*styling for 3D Cube transforms / animations on face select (on roll)*/
-.cube.show-1  { transform: translateZ(-100px) rotateY(   0deg); }
-.cube.show-2  { transform: translateZ(-100px) rotateY(-180deg); }
-.cube.show-3  { transform: translateZ(-100px) rotateY( -90deg); }
-.cube.show-4   { transform: translateZ(-100px) rotateY(  90deg); }
-.cube.show-5   { transform: translateZ(-100px) rotateX( -90deg); }
-.cube.show-6 { transform: translateZ(-100px) rotateX(  90deg); }
+.cube.show-1 {
+    transform: translateZ(-100px) rotateY(0deg);
+}
+
+.cube.show-2 {
+    transform: translateZ(-100px) rotateY(-180deg);
+}
+
+.cube.show-3 {
+    transform: translateZ(-100px) rotateY(-90deg);
+}
+
+.cube.show-4 {
+    transform: translateZ(-100px) rotateY(90deg);
+}
+
+.cube.show-5 {
+    transform: translateZ(-100px) rotateX(-90deg);
+}
+
+.cube.show-6 {
+    transform: translateZ(-100px) rotateX(90deg);
+}
 
 /* universal style for cube faces  */
 .cube__face {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border: 4px solid white;
-  line-height: 200px;
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  border-radius: 50%;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 4px solid white;
+    line-height: 200px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
 
 }
 
 /* individual styling for each numbers face  */
-.cube__face--1  { background: black;  opacity: 0.75;}
-.cube__face--3  { background: black;   opacity: 0.75; }
-.cube__face--2  {  background: black;   opacity: 0.75; }
-.cube__face--4  {  background: black;   opacity: 0.75; }
-.cube__face--5   {  background: black;   opacity: 0.75; }
-.cube__face--6 {  background: black;  opacity: 0.75; }
+.cube__face--1 {
+    background: black;
+    opacity: 0.75;
+}
 
-.cube__face--1  { transform: rotateY(  0deg) translateZ(100px); }
-.cube__face--2   { transform: rotateY(180deg) translateZ(100px); }
-.cube__face--3  { transform: rotateY( 90deg) translateZ(100px); }
-.cube__face--4   { transform: rotateY(-90deg) translateZ(100px); }
-.cube__face--5   { transform: rotateX( 90deg) translateZ(100px); }
-.cube__face--6 { transform: rotateX(-90deg) translateZ(100px); }
+.cube__face--3 {
+    background: black;
+    opacity: 0.75;
+}
 
-label { 
+.cube__face--2 {
+    background: black;
+    opacity: 0.75;
+}
+
+.cube__face--4 {
+    background: black;
+    opacity: 0.75;
+}
+
+.cube__face--5 {
+    background: black;
+    opacity: 0.75;
+}
+
+.cube__face--6 {
+    background: black;
+    opacity: 0.75;
+}
+
+.cube__face--1 {
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+.cube__face--2 {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.cube__face--3 {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.cube__face--4 {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.cube__face--5 {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.cube__face--6 {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+label {
     margin-right: 10px;
     /* float: right; */
 }
@@ -219,7 +279,7 @@ label {
 input {
     /* background-color: rgb(144, 127, 244); */
     background-color: rgb(250, 163, 163);
-    border:rgb(23, 24, 24) solid .15em;
+    border: rgb(23, 24, 24) solid .15em;
     margin: 1em;
     /* float: right; */
 
@@ -228,7 +288,7 @@ input {
 textarea {
     /* background-color: rgb(144, 127, 244); */
     background-color: rgb(250, 163, 163);
-    border:rgb(23, 24, 24) solid .15em;
+    border: rgb(23, 24, 24) solid .15em;
     margin: 1em;
 }
 
@@ -250,6 +310,7 @@ th {
     font-style: italic;
     text-decoration: underline;
 }
+
 .table-responsive {
     /* font: bold; */
     background-color: lightsteelblue;
@@ -349,4 +410,4 @@ input {
         padding-bottom: 15em;
         border: 10px;
     }
-  }
+}
