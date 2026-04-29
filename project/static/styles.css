@@ -14,21 +14,21 @@ body {
     color:rgb(151, 151, 151);  
   } */
 
-.hero {
+/* .hero {
     background-image: url("img/james_star.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     color: rgb(151, 151, 151);
-}
+} */
 
 nav {
     padding: 1em;
     padding-top: 2.5em;
     padding-bottom: 2.5em;
-    background-color: black;
+    /* background-color: black; */
     /* text-shadow: 2px 2px 5px rgb(250, 163, 163); */
     text-align: center;
-    /* background-image:url("img/james_star.jpg"); */
+    background-image: url("img/james_star.jpg");
     background-repeat: no-repeat;
 
 }
@@ -47,7 +47,7 @@ h1 {
     padding: 1em;
     text-align: left;
     width: 20%;
-    color: darkred;
+    color: black;
 }
 
 #content_section {
