@@ -1,18 +1,18 @@
-body {
-    /* background-image: url("img/stormynight.jpg"); */
+/* body {
+    /* background-image: url("img/stormynight.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgb(62, 182, 182);
-}
+} */
 
-/* body { 
+body {
     font-family: sans-serif;
-    /* background:url("img/james_star.jpg");
-    background-image:url("img/james_star.jpg");
+    background: url("img/james_star.jpg");
+    background-image: url("img/james_star.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    color:rgb(151, 151, 151);  
-  } */
+    color: rgb(151, 151, 151);
+}
 
 /* .hero {
     background-image: url("img/james_star.jpg");
