@@ -8,7 +8,7 @@
 body {
     font-family: sans-serif;
     background: url("img/james_star.jpg");
-    background-image: url("img/james_star.jpg");
+    background-image: url("static/img/james_star.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     color: rgb(151, 151, 151);
